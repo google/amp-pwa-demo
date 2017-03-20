@@ -8,8 +8,7 @@ __This is not an official Google product.__
 
 ## Setup
 
-This project requires `node` and `npm` which can be installed
-[here](https://nodejs.org/en/download/).
+This project requires [Node.js](https://nodejs.org/en/download/) and [NPM](https://www.npmjs.com/).
 
 In the root of this repo, run `npm install` to download all dependencies, and
 then `npm start` to start the server. You can visit the site at
