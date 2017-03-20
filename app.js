@@ -80,6 +80,10 @@ app.get('/_/app_shell', function(req, res) {
   res.render('templates/app_shell.html');
 });
 
+app.get('/_/install_serviceworker', function(req, res) {
+  res.render('templates/install_serviceworker.html');
+});
+
 app.get('/service_worker.js', function(req, res) {
   res.setHeader('content-type', 'text/javascript');
   res.write(ASSETS['service_worker/service_worker.js']);
