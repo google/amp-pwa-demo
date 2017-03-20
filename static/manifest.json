@@ -2,7 +2,7 @@
   "name": "The Daily Spoon",
   "short_name": "DailySpoon",
   "icons": [{
-    "src": "/images/icon-192.png",
+    "src": "/icon-192.png",
     "sizes": "192x192",
     "type": "image/png"
   }],
