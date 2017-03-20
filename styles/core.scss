@@ -24,7 +24,12 @@
 
 main {
   margin: 120px auto;
-  max-width: 720px;
+  max-width: 90%;
+  width: 720px;
+}
+
+amp-img {
+  background: #eee;  // Light grey placeholder for missing/loading images.
 }
 
 button {
@@ -36,4 +41,33 @@ button {
   font-weight: bold;
   height: 2.5em;
   padding: 0 1.5em;
+}
+
+.other-articles {
+  color: #fa5742;
+  font-size: 20px;
+  text-align: center;
+}
+
+.article-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: -12px;
+}
+
+.article-grid a {
+  padding: 12px;
+  width: 220px;
+  text-decoration: none;
+  transition: opacity .1s;
+}
+
+.article-grid:hover a:not(:hover) {
+  opacity: 0.5;
+}
+
+.article-grid h2 {
+  color: black;
+  font-size: 16px;
 }
