@@ -2,7 +2,7 @@
 
 A simple, dependency-free blog that uses a
 [Progressive Web App](https://developers.google.com/web/progressive-web-apps/)
-(PWA) to show [Accellerated Mobile Pages](https://www.ampproject.org/) (AMP).
+(PWA) to show [Accelerated Mobile Pages](https://www.ampproject.org/) (AMP).
 __This is not an official Google product.__
 
 
@@ -13,7 +13,7 @@ This project requires `node` and `npm` which can be installed
 
 In the root of this repo, run `npm install` to download all dependencies, and
 then `npm start` to start the server. You can visit the site at
-[localhost:8080](localhost:8080).
+[localhost:8080](http://localhost:8080).
 
 Note that this is just a _demo site_. Some features (e.g. push notifications)
 require a more complex backend that is not implemented here.
@@ -30,14 +30,15 @@ The front end consists of three main components:
 - __AMP templates__: All pages are valid AMP pages. We'll only have to maintain
   a single set of templates (rather than a conventional version and a separate
   AMP version).
-- __App Shell__: This is an empty HTML page that contains some scripts to
-  download content.
-- __Service Worker__
+- __[App Shell](https://developers.google.com/web/fundamentals/architecture/app-shell)__:
+  This is an empty HTML page that contains some scripts to download content.
+- __[Service Worker](https://developers.google.com/web/fundamentals/getting-started/primers/service-workers)__
 
 The first pageview will always be an AMP page. If visitors are coming from
-Google search results, this page will be loaded directly from the Google AMP
-cache. In the background, the AMP page will install the service worker, which in
-turn will cache the app shell page and some other resources.
+Google search results, this page will be loaded directly from the [Google AMP
+cache](https://developers.google.com/amp/cache/overview). In the background,
+the AMP page will install the service worker, which in turn will cache the app
+shell page and some other resources.
 
 Any further pageview will be intercepted by the service worker. It returns the
 app shell, rather than the requested page, and the app shell will then load the
