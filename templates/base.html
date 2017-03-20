@@ -1,0 +1,66 @@
+<!doctype html>
+<html ⚡>
+  <head>
+    <meta charset="utf-8">
+
+    <title>{{ title }}</title>
+    <meta name="description" content="{{ description }}">
+    <link rel="canonical" href="{{ request.originalUrl }}">
+    <meta name="viewport" content="initial-scale=1, minimum-scale=1, width=device-width">
+
+    {# Colours and Icons -#}
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#fa5742">
+    <link rel="shortcut icon" href="/favicon.png">
+
+    {# iOS Web App Configuration -#}
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="The Daily Spoon">
+    <link rel="apple-touch-icon" href="/logo-white.png">
+
+    {# AMP Scripts -#}
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
+    <script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
+    <script async custom-element="amp-install-serviceworker" src="https://cdn.ampproject.org/v0/amp-install-serviceworker-0.1.js"></script>
+    <script async custom-element="amp-font" src="https://cdn.ampproject.org/v0/amp-font-0.1.js"></script>
+
+    {# Share Metadata -#}
+    <meta property="og:site_name" content="The Daily Spoon">
+    <meta property="og:url" content="{{ request.originalUrl }}">
+    <meta property="og:title" content="{{ title }}">
+    <meta property="og:description" content="{{ description }}">
+    <meta name="twitter:card" content="summary">
+
+    {# TODO(plegner) AMP Structured Data -#}
+
+    {# Fonts #}
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700"/>
+
+    {# Styles -#}
+    <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
+    <style amp-custom>{{ assets['styles/core.scss'] | safe }}</style>
+  </head>
+  <body>
+    <amp-font layout="nodisplay" font-family="Open Sans" timeout="2000" on-error-add-class="fonts-error"></amp-font>
+    <amp-analytics type="googleanalytics">
+      <script type="application/json">
+        {
+          "vars": {
+            "account": "UA-84655221-1"
+          },
+          "triggers": {
+            "trackPageview": {
+              "on": "visible",
+              "request": "pageview"
+            }
+          }
+        }
+      </script>
+    </amp-analytics>
+    <header><div class="header-body"><a href="/" class="logo">TheDailySpoon</a></div></header>
+    <main>{% block page %}{% endblock %}</main>
+    <amp-install-serviceworker src="/service_worker.js" data-iframe-src="/_/install_serviceworker" layout="nodisplay"></amp-install-serviceworker>
+  </body>
+</html>

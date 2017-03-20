@@ -1,0 +1,8 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>Install Service Worker</title>
+<script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/service_worker.js');
+  }
+</script>

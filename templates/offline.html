@@ -1,0 +1,13 @@
+{% extends "../templates/base.html" %}
+
+{% set title = "The Daily Spoon" %}
+{% set description = "Reviews of London Restaurants" %}
+
+{% block page %}
+  <h1>You’re offline :(</h1>
+  <p>Connect to the internet to view this page. We can also download it in the background and notify you when it is available.</p>
+  <button class="notify-article">Notify me!</button>
+
+  <h2>Cached articles</h2>
+  <div class="cached-articles"></div>
+{% endblock %}

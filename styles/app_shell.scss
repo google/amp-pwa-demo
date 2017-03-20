@@ -1,0 +1,100 @@
+/**
+ * Copyright 2017 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+
+@import 'shared';
+@import 'notifications';
+
+
+#refresh-banner {
+  background-color: rgba(black, 90%);
+  color: white;
+  left: 0;
+  padding: 8px 0;
+  position: fixed;
+  right: 0;
+  text-align: center;
+  top: 100vh;
+  transition: transform .3s;
+  z-index: 9999;
+
+  button {
+    background: rgba(white, 20%);
+    border: 0;
+    border-radius: 2px;
+    color: black;
+    cursor: pointer;
+    font-size: 1em;
+    margin-left: 12px;
+    padding: 6px 12px;
+  }
+
+  &.visible {
+    transform: translateY(-100%);
+  }
+}
+
+#loading-bar {
+  $bar-color: #4285f5;
+
+  background: $bar-color;
+  display: none;
+  height: 3px;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  will-change: transform;
+  z-index: 9999;
+
+  &::after {
+    content: "";
+    display: block;
+    width: 120px;
+    height: 3px;
+    float: right;
+    box-shadow: 0 0 8px 2px $bar-color;
+    transform: rotate(3deg);
+    transform-origin: right top;
+  }
+}
+
+#offline-banner {
+  background-color: #fff;
+  bottom: 0;
+  box-shadow: 0 0 2px rgba(#000, .14);
+  color: #000;
+  font-size: .75rem;
+  left: 0;
+  padding: 3px 0;
+  position: fixed;
+  right: 0;
+  text-align: center;
+  text-transform: uppercase;
+  transition: transform .3s;
+  transform: translateY(calc(100% + 2px));
+  z-index: 9999;
+
+  .offline & {
+    transform: none;
+  }
+}
+
+.offline .offline-disable {
+  -webkit-filter: grayscale(1);
+  opacity: .38;
+  pointer-events: none;
+}
