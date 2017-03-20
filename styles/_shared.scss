@@ -31,7 +31,9 @@ header {
   background: #fa5742;
   height: 44px;
   position: fixed;
+  top: 0;
   width: 100%;
+  z-index: 10;
 }
 
 .header-body {

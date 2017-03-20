@@ -15,6 +15,8 @@
  */
 
 
+import {loadAmpDoc} from './_amp_loader';
+
 const BANNER = document.querySelector('#refresh-banner');
 const REFRESH_BUTTON = BANNER.querySelector('button');
 

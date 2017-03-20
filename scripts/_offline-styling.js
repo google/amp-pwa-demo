@@ -37,14 +37,11 @@ document.addEventListener('navigate', function(e) {
   function checkCachedLinks() {
     let elements = e.detail.body.querySelectorAll('.offline-disable');
     [].slice.call(elements).forEach(function(el) {
-      let href = el.getAttribute('data-gp-href');
-      if (href) {
-        caches.match(href).then(function(response) {
-          if (response) {
-            el.classList.remove('offline-disable');
-          }
-        });
-      }
+      caches.match(el.href).then(function(response) {
+        if (response) {
+          el.classList.remove('offline-disable');
+        }
+      });
     });
   }
 
@@ -52,6 +49,7 @@ document.addEventListener('navigate', function(e) {
     e.detail.body.classList.remove('offline');
 
     // Retry loading all broken images when coming back online.
+    // Note that this also works for <amp-img>, which creates an <img> child.
     e.detail.body.querySelectorAll('img').forEach(function(img) {
       img.setAttribute('src', img.src);
     });
@@ -69,9 +67,9 @@ document.addEventListener('navigate', function(e) {
    */
   function prefetchLinks() {
     console.log('[SW] Prefetch related articles.');
-    let links = e.detail.body.querySelectorAll('[data-gp-href]');
+    let links = e.detail.body.querySelectorAll('a.precache');
     for (let i = 0; i < links.length && i < 5; ++i) {
-      fetch(links[i].getAttribute('data-gp-href'), {credentials: 'include'});
+      fetch(links[i].href, {credentials: 'include'});
     }
   }
 
