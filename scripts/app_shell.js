@@ -30,6 +30,7 @@ import './_refresh';
  */
 function interceptLinkClick(e) {
   if (e.defaultPrevented || e.button) return;
+  if (e.metaKey) return;
 
   let a = event.target;
   while (a && (a.tagName != 'A' || !a.href)) {
