@@ -59,6 +59,7 @@ export function loadAmpDoc(url) {
       // Close and remove the previous AMP doc.
       if (AMP_DOC) AMP_DOC.close();
       CONTAINER.textContent = '';
+      window.scrollTo(0, 0);
 
       // Attach the AMP document and update the page title.
       document.title = doc.title || '';
