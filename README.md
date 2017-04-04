@@ -48,14 +48,3 @@ custom JavaScript to add functionality that is not (yet) supported by AMP. Note
 however that this functionality will not be available on the first pageview, or
 in browsers that don't support service workers. The App Shell can also intercept
 link clicks and use the web history API to create a "single page app".
-
-
-## TODO List
-
-- [ ] P1 Get article title and thumbnail for offline page and notifications.
-- [ ] P2 Automatically refresh offline page when back online
-- [ ] P2 Improve article CSS + HTML (e.g. srcset for images)
-- [ ] P3 Run the demo site on GitHub pages
-- [ ] P3 404 Error pages
-- [ ] P4 Notifications server
-- [ ] P4 Better analytics

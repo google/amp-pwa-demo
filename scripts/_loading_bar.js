@@ -15,8 +15,6 @@
  */
 
 
-// Show a custom loading-bar that indicates when a new page is loading.
-
 const BAR = document.querySelector('#loading-bar');
 const SPEED = 250;
 let STATUS = 0;

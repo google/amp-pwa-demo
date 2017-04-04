@@ -15,8 +15,6 @@
  */
 
 
-// TODO(plegner) convert to new PWAMP app shell.
-
 const WELCOME_NOTIFICATION = {
   title: 'You’ll now get notifications!',
   body: 'We’ll let you know about latest articles on The Daily Spoon.' +
